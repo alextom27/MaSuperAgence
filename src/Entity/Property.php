@@ -4,9 +4,14 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Cocur\Slugify\Slugify;
+use Symfony\Component\Form\FormTypeInterface;
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PropertyRepository")
+ * @UniqueEntity("title")
  */
 class Property
 {
@@ -24,12 +29,14 @@ class Property
     private $id;
 
     /**
+     * @Assert\Length(min=8, max=255)
      * @ORM\Column(type="string", length=255)
      */
     private $title;
 
     /**
      * @ORM\Column(type="integer")
+     * @Assert\Range(min=10, max=2000)
      */
     private $surface;
 
@@ -74,6 +81,7 @@ class Property
     private $address;
 
     /**
+     * @Assert\Regex("/^[0-9]{5}/")
      * @ORM\Column(type="string", length=255)
      */
     private $postal_code;

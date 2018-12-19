@@ -10,9 +10,11 @@
                 </div>
 
                 <div class="col-4">
-                    <h1>{{ property.title }}</h1>
+                    <h1>{{ property.title|capitalize }}</h1>
                     <h2>{{ property.rooms }} pièces - {{ property.surface }} m²</h2>
-                    <div class="text-primary" style="font-size:3rem;font-weight: bold;">{{ property.formattedPrice }}€
+                    <h4>{{ property.address|capitalize }}</h4>
+                    <h4>{{ property.postalCode }} {{ property.city|upper }}</h4>
+                    <div class="text-primary" style="font-size:3rem;font-weight: bold;">{{ property.formattedPrice }} €
                     </div>
                     <a href="#" class="btn btn-primary">Contacter l'agence</a>
                 </div>
@@ -32,11 +34,11 @@
                         <td>{{ property.surface }} m²</td>
                     </tr>
                     <tr>
-                        <td>Pièces</td>
+                        <td>Nbr de pièces</td>
                         <td>{{ property.rooms }}</td>
                     </tr>
                     <tr>
-                        <td>Chambres</td>
+                        <td>Nbr de chambres</td>
                         <td>{{ property.bedrooms }}</td>
                     </tr>
                     <tr>

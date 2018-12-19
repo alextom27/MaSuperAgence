@@ -5,22 +5,20 @@
 
     <div class="jumbotron text-center">
         <h1>Ma Super Agence</h1>
-        <p>Fusce quis varius ex. Pellentesque eu velit vel mi ultrices fringilla quis at ipsum. Nunc vel sapien vitae
-            nunc pharetra cursus non vitae nisi. In ut enim eros. Mauris id turpis ac risus vulputate tristique. Nunc
-            lacus odio, pulvinar ut gravida et, dapibus a justo. </p>
+        <h3>Une agence qu'elle est vachement mieux pour acheter des maisons !</h3>
     </div>
     <div class="container">
         <h2>Les derniers biens</h2>
         <div class="row flex">
             {% for property in properties %}
-                <div class="col-3">
+                <div class="col-lg-3 col-md-10">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">
-                               <a href="{{ path('property.show', {id: property.id, slug:property.slug}) }}">{{ property.title }}</a>
+                               <a href="{{ path('property.show', {id: property.id, slug:property.slug}) }}">{{ property.title|capitalize }}</a>
                             </h5>
-                            <p class="card-text">{{ property.city }} ({{ property.postalCode }}</p>
-                            <div class="text-primary" style="font-weight: bold;font-size: 2rem">{{ property.formattedPrice }} €</div>
+                            <p class="card-text">{{ property.city }} ({{ property.postalCode }})</p>
+                            <div class="text-primary" style="font-weight: bold;font-size: 1.5rem">{{ property.formattedPrice }} €</div>
                         </div>
                     </div>
                 </div>
